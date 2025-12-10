@@ -10,8 +10,8 @@ const CONFIG = {
     TAX_RATE: 0.12,
     
     // Telegram sozlamalari
-    BOT_TOKEN: "", // BotFather bergan token
-    ADMIN_ID: "", // Admin Telegram ID raqami
+    BOT_TOKEN: "6851586443", // BotFather bergan token
+    ADMIN_ID: "8346506362:AAFk-yPBURy8eTpSGP-gklaWsLwQTqqgDy4", // Admin Telegram ID raqami
     
     // API endpoints
     API_BASE_URL: "https://api.example.com",
@@ -310,4 +310,5 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Buyurtmalar sonini ko'rsatish
     updateOrdersCount();
+
 });
