@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 KIDDY - O'yinchoq Do'kon</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka+One&display=swap">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader-content">
+            <div class="toy-loader">
+                <div class="toy-ball"></div>
+                <div class="toy-car"></div>
+                <div class="toy-bear"></div>
+            </div>
+            <p class="loading-text">KIDDY yuklanmoqda...</p>
+        </div>
+    </div>
+
+    <!-- Asosiy konteyner -->
+    <div class="app-container">
+        <!-- Sarlavha -->
+        <header class="app-header">
+            <div class="header-top">
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <i class="fas fa-robot"></i>
+                        <i class="fas fa-car"></i>
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h1 class="logo-text">KIDDY<span class="logo-highlight">TOYS</span></h1>
+                    <div class="header-badge">
+                        <span class="badge">🎁 50% chegirma</span>
+                    </div>
+                </div>
+                
+                <div class="header-actions">
+                    <button class="icon-btn wishlist-btn" id="wishlist-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <button class="icon-btn cart-btn" id="cart-btn">
+                        <i class="fas fa-shopping-basket"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                    <button class="icon-btn menu-btn" id="menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Qidiruv paneli -->
+            <div class="search-section">
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="search-input" placeholder="Qidirish... (masalan: Lego, o'yinchoq mashina, qo'g'irchoq)">
+                        <button class="search-clear" id="search-clear">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <button class="voice-search-btn" id="voice-btn">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                </div>
+                
+                <div class="quick-categories">
+                    <span class="quick-tag" data-tag="lego">🧱 Lego</span>
+                    <span class="quick-tag" data-tag="car">🚗 Mashinalar</span>
+                    <span class="quick-tag" data-tag="doll">👸 Qo'g'irchoqlar</span>
+                    <span class="quick-tag" data-tag="sale">🔥 Ayriliq</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Banner slider -->
+        <section class="banner-slider">
+            <div class="slider-container">
+                <div class="slide active" style="background: linear-gradient(135deg, #ff6b6b, #ff8e53)">
+                    <div class="slide-content">
+                        <h3>Yangi Kelganlar! 🎉</h3>
+                        <p>Smart o'yinchoqlar 30% gacha chegirma</p>
+                        <button class="slide-btn">Ko'rish</button>
+                    </div>
+                    <div class="slide-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                </div>
+                
+                <div class="slide" style="background: linear-gradient(135deg, #36d1dc, #5b86e5)">
+                    <div class="slide-content">
+                        <h3>Lego To'plamlari 🧩</h3>
+                        <p>500+ turdagi konstruktorlar</p>
+                        <button class="slide-btn">Sotib olish</button>
+                    </div>
+                    <div class="slide-image">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                </div>
+                
+                <div class="slide" style="background: linear-gradient(135deg, #a8e6cf, #4facfe)">
+                    <div class="slide-content">
+                        <h3>5+ Yosh Uchun 🎨</h3>
+                        <p>Rivojlantiruvchi o'yinchoqlar</p>
+                        <button class="slide-btn">Tanlash</button>
+                    </div>
+                    <div class="slide-image">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slider-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+
+        <!-- Kategoriyalar -->
+        <section class="categories-section">
+            <div class="section-header">
+                <h2><i class="fas fa-th-large"></i> Kategoriyalar</h2>
+                <a href="#" class="view-all">Hammasi <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card" data-category="lego">
+                    <div class="category-icon" style="background: #ff6b6b">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <span>Lego</span>
+                </div>
+                
+                <div class="category-card" data-category="cars">
+                    <div class="category-icon" style="background: #36d1dc">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <span>Mashinalar</span>
+                </div>
+                
+                <div class="category-card" data-category="dolls">
+                    <div class="category-icon" style="background: #ff8e53">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <span>Qo'g'irchoqlar</span>
+                </div>
+                
+                <div class="category-card" data-category="educational">
+                    <div class="category-icon" style="background: #5b86e5">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <span>Rivojlantiruvchi</span>
+                </div>
+                
+                <div class="category-card" data-category="robots">
+                    <div class="category-icon" style="background: #a8e6cf">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <span>Robotlar</span>
+                </div>
+                
+                <div class="category-card" data-category="puzzles">
+                    <div class="category-icon" style="background: #ffd166">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <span>Pazllar</span>
+                </div>
+                
+                <div class="category-card" data-category="outdoor">
+                    <div class="category-icon" style="background: #4facfe">
+                        <i class="fas fa-bicycle"></i>
+                    </div>
+                    <span>Ochiq havoda</span>
+                </div>
+                
+                <div class="category-card" data-category="soft">
+                    <div class="category-icon" style="background: #e0bbe4">
+                        <i class="fas fa-hippo"></i>
+                    </div>
+                    <span>Yumshoq o'yinchoqlar</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aksiya mahsulotlari -->
+        <section class="featured-section">
+            <div class="section-header">
+                <h2><i class="fas fa-fire"></i> Ayriliq Mahsulotlar</h2>
+                <div class="sale-timer">
+                    <i class="fas fa-clock"></i>
+                    <span id="sale-timer">23:45:12</span>
+                </div>
+            </div>
+            
+            <div class="products-scroll" id="featured-products">
+                <!-- Aksiya mahsulotlari JavaScript orqali yuklanadi -->
+            </div>
+        </section>
+
+        <!-- Barcha mahsulotlar -->
+        <section class="products-section">
+            <div class="section-header">
+                <h2><i class="fas fa-gift"></i> Barcha O'yinchoqlar</h2>
+                <div class="sort-filter">
+                    <select id="sort-select">
+                        <option value="popular">Mashhurlari</option>
+                        <option value="new">Yangi kelganlar</option>
+                        <option value="price-low">Arzon narx</option>
+                        <option value="price-high">Qimmat narx</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="products-grid" id="products-grid">
+                <!-- Mahsulotlar JavaScript orqali yuklanadi -->
+            </div>
+            
+            <div class="load-more">
+                <button id="load-more-btn" class="load-btn">
+                    <i class="fas fa-plus-circle"></i> Ko'proq ko'rsatish
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="footer-nav">
+                <a href="#" class="footer-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Bosh sahifa</span>
+                </a>
+                <a href="#" class="footer-link" id="categories-link">
+                    <i class="fas fa-th-large"></i>
+                    <span>Kategoriyalar</span>
+                </a>
+                <a href="#" class="footer-link" id="wishlist-footer">
+                    <i class="far fa-heart"></i>
+                    <span>Sevimlilar</span>
+                </a>
+                <a href="#" class="footer-link" id="profile-link">
+                    <i class="fas fa-user"></i>
+                    <span>Profil</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Savat modali -->
+    <div class="modal cart-modal" id="cart-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-shopping-basket"></i> Savatingiz</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="cart-items" id="cart-items">
+                    <!-- Savatdagi mahsulotlar -->
+                </div>
+                <div class="cart-empty" id="cart-empty">
+                    <i class="fas fa-shopping-basket"></i>
+                    <p>Savat hozircha bo'sh</p>
+                    <button class="btn-primary" id="shop-now-btn">Hozir xarid qilish</button>
+                </div>
+                <div class="cart-summary" id="cart-summary">
+                    <div class="summary-row">
+                        <span>Mahsulotlar:</span>
+                        <span id="cart-subtotal">0 so'm</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Yetkazib berish:</span>
+                        <span>15,000 so'm</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Jami:</span>
+                        <span id="cart-total">15,000 so'm</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="clear-cart-btn">
+                    <i class="fas fa-trash"></i> Savatni tozalash
+                </button>
+                <button class="btn-primary" id="checkout-btn">
+                    <i class="fas fa-credit-card"></i> Buyurtma berish
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buyurtma modali -->
+    <div class="modal order-modal" id="order-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-shipping-fast"></i> Buyurtma ma'lumotlari</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="order-form">
+                    <div class="form-section">
+                        <h4><i class="fas fa-user"></i> Shaxsiy ma'lumotlar</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Ism</label>
+                                <input type="text" id="order-name" required placeholder="Ismingizni kiriting">
+                            </div>
+                            <div class="form-group">
+                                <label>Telefon</label>
+                                <input type="tel" id="order-phone" required placeholder="+998">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h4><i class="fas fa-map-marker-alt"></i> Yetkazib berish manzili</h4>
+                        <div class="form-group">
+                            <label>Manzil</label>
+                            <textarea id="order-address" rows="2" required placeholder="To'liq manzilingiz"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Shahar</label>
+                                <select id="order-city">
+                                    <option>Toshkent</option>
+                                    <option>Samarqand</option>
+                                    <option>Buxoro</option>
+                                    <option>Andijon</option>
+                                    <option>Farg'ona</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Yetkazish vaqti</label>
+                                <select id="order-time">
+                                    <option>Istalgan vaqt</option>
+                                    <option>09:00-12:00</option>
+                                    <option>12:00-15:00</option>
+                                    <option>15:00-18:00</option>
+                                    <option>18:00-21:00</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h4><i class="fas fa-credit-card"></i> To'lov usuli</h4>
+                        <div class="payment-methods">
+                            <label class="payment-method">
+                                <input type="radio" name="payment" value="cash" checked>
+                                <div class="payment-content">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span>Naqd pul</span>
+                                </div>
+                            </label>
+                            <label class="payment-method">
+                                <input type="radio" name="payment" value="card">
+                                <div class="payment-content">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Karta</span>
+                                </div>
+                            </label>
+                            <label class="payment-method">
+                                <input type="radio" name="payment" value="click">
+                                <div class="payment-content">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>Click</span>
+                                </div>
+                            </label>
+                            <label class="payment-method">
+                                <input type="radio" name="payment" value="payme">
+                                <div class="payment-content">
+                                    <i class="fas fa-wallet"></i>
+                                    <span>Payme</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="order-summary">
+                        <h4><i class="fas fa-receipt"></i> Buyurtma xulosasi</h4>
+                        <div class="summary-items" id="order-summary-items">
+                            <!-- Buyurtma mahsulotlari -->
+                        </div>
+                        <div class="summary-total">
+                            <span>Jami to'lov:</span>
+                            <span class="total-price" id="order-total-price">0 so'm</span>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary btn-block" id="submit-order-btn">
+                        <i class="fas fa-paper-plane"></i> Buyurtmani tasdiqlash
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profil modali -->
+    <div class="modal profile-modal" id="profile-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-user-circle"></i> Profil</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="profile-info">
+                    <div class="profile-avatar">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <div class="profile-details">
+                        <h4 id="user-name">Mehmon foydalanuvchi</h4>
+                        <p><i class="fas fa-phone"></i> <span id="user-phone">+998 -- --- -- --</span></p>
+                        <p><i class="fas fa-map-marker-alt"></i> <span id="user-city">Toshkent</span></p>
+                    </div>
+                </div>
+                
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <div class="stat-icon" style="background: #ff6b6b">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-count" id="orders-count">0</span>
+                            <span class="stat-label">Buyurtmalar</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon" style="background: #36d1dc">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-count" id="wishlist-count">0</span>
+                            <span class="stat-label">Sevimlilar</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon" style="background: #5b86e5">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-count" id="points-count">150</span>
+                            <span class="stat-label">Ballar</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-menu">
+                    <a href="#" class="menu-item">
+                        <i class="fas fa-history"></i>
+                        <span>Buyurtmalar tarixi</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                    <a href="#" class="menu-item">
+                        <i class="fas fa-heart"></i>
+                        <span>Sevimlilar ro'yxati</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                    <a href="#" class="menu-item">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Manzillar</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                    <a href="#" class="menu-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Sozlamalar</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                    <a href="#" class="menu-item">
+                        <i class="fas fa-headset"></i>
+                        <span>Qo'llab-quvvatlash</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Xabar ko'rsatish -->
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="notification-text">Mahsulot savatga qo'shildi</span>
+        </div>
+    </div>
+
+    <!-- Audio element ovozli qidirish uchun -->
+    <audio id="notification-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3"></audio>
+
+    <!-- JavaScript fayllari -->
+    <script src="config.js"></script>
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
